@@ -1,0 +1,141 @@
+<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+    <div class="app-brand demo">
+      <a href="index.html" class="app-brand-link">
+        <img src="../../images/logo.png" width="100%">
+      </a>
+
+      <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+        <i class="bx bx-chevron-left bx-sm align-middle"></i>
+      </a>
+    </div>
+
+    <div class="menu-inner-shadow"></div>
+    <hr>
+    <ul class="menu-inner py-1">
+      <!-- Dashboard -->
+      <li class="menu-item" id="li_dash">
+        <a href="admin.php" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-home-circle"></i>
+          <div data-i18n="Analytics">Dashboard</div>
+        </a>
+      </li>
+
+      <!-- Layouts -->
+      <li class="menu-item" id="sub_pract">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+          <i class="menu-icon tf-icons bx bx-layout"></i>
+          <div data-i18n="Layouts">Practicas</div>
+        </a>
+
+        <ul class="menu-sub">
+          <li class="menu-item" id="li_pr">
+            <a href="practicas_lista.php" class="menu-link">
+              <div data-i18n="Without menu">Registradas</div>
+            </a>
+          </li>
+          <li class="menu-item" id="li_or">
+            <a href="mis_observaciones.php" class="menu-link">
+              <div data-i18n="Without menu">Obs. Realizadas</div>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="menu-item" id="sub_test">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+          <i class='bx bx-list-check'></i>
+          <div data-i18n="Layouts">Test</div>
+        </a>
+
+        <ul class="menu-sub">
+          <li class="menu-item" id="li_caract">
+            <a href="estudiantes_caracterizados.php" class="menu-link">
+              <div data-i18n="Without menu">Autocaracterización</div>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="menu-item" id="sub_usu">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+          <i class='bx bxs-user'></i>
+          <div data-i18n="Layouts">Usuarios</div>
+        </a>
+
+        <ul class="menu-sub">
+          <li class="menu-item" id="li_ru">
+            <a data-bs-toggle="modal" data-bs-target="#modalRegistro" href="estudiantes_caracterizados.php" class="menu-link">
+              <div data-i18n="Without menu">Registrar</div>
+            </a>
+          </li>
+          <li class="menu-item" id="li_lu">
+            <a href="usuarios.php" class="menu-link">
+              <div data-i18n="Without menu">Listar</div>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+</aside>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalRegistro" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalCenterTitle">Registro de Usuario</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body p-2">
+        <form id="registro_usuario_form" method="post" action="../../php/registrar_usuario.php">
+          <div class="modal-body">   
+              <div class="row">
+                  <div class="col-lg-12">
+                      <label for="tema_practica">Nombre: </label>
+                      <input class="form-control" type="text" id="nombre_u" name="nombre_u" required>   
+                  </div>              
+              </div>
+              <br>
+              <div class="row">
+                  <div class="col-lg-12">
+                      <label for="tema_practica">Correo: </label>
+                      <input class="form-control" type="text" id="correo_u" name="correo_u" required>   
+                  </div>              
+              </div>  
+              <hr>
+              <div class="row">
+                  <div class="col-lg-12">
+                      <label for="tema_practica">Permiso de Realizar Observaciones: </label>
+                      <select class="form-control" name="realizar_obser" id="realizar_obser">
+                          <option value="1">Si</option>
+                          <option value="0">No</option>
+                      </select>  
+                  </div>              
+              </div>
+              <br>
+              <div class="row">
+                  <div class="col-lg-12">
+                      <input type="hidden" name="opcion" id="opcion" value="guardar">
+                      <label for="tema_practica">Permiso de Gestionar Usuarios: </label>
+                      <select class="form-control" name="registrar_usu" id="registrar_usu">
+                          <option value="1">Si</option>
+                          <option value="0">No</option>
+                      </select>  
+                  </div>              
+              </div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+              <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
